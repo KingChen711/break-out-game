@@ -70,11 +70,11 @@ export function GameControls({ onRoll, onRotate, disabled }: GameControlsProps) 
           <Button
             variant="outline"
             size="lg"
-            onClick={() => onRotate("counterclockwise")}
+            onClick={() => onRotate("clockwise")}
             disabled={disabled}
             className="w-14 h-14 bg-stone-800/80 border-stone-600 hover:bg-cyan-900/50 hover:border-cyan-500/50 text-cyan-100 text-xl transition-all"
           >
-            ↺
+            ↻
           </Button>
           <Button
             variant="outline"
@@ -84,16 +84,16 @@ export function GameControls({ onRoll, onRotate, disabled }: GameControlsProps) 
             className="w-14 h-14 bg-stone-800/80 border-stone-600 hover:bg-cyan-900/50 hover:border-cyan-500/50 text-cyan-100 text-xl transition-all"
             title="Turn around (180°)"
           >
-            ⟲
+            ↶
           </Button>
           <Button
             variant="outline"
             size="lg"
-            onClick={() => onRotate("clockwise")}
+            onClick={() => onRotate("counterclockwise")}
             disabled={disabled}
             className="w-14 h-14 bg-stone-800/80 border-stone-600 hover:bg-cyan-900/50 hover:border-cyan-500/50 text-cyan-100 text-xl transition-all"
           >
-            ↻
+            ↺
           </Button>
         </div>
       </div>

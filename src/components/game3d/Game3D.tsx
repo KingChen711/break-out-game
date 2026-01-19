@@ -437,12 +437,12 @@ export function Game3D() {
         case "q":
         case "Q":
           e.preventDefault();
-          handleRotate("counterclockwise");
+          handleRotate("clockwise");
           break;
         case "e":
         case "E":
           e.preventDefault();
-          handleRotate("clockwise");
+          handleRotate("counterclockwise");
           break;
         case "x":
         case "X":
