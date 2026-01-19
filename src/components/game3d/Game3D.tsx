@@ -485,8 +485,20 @@ export function Game3D() {
             onSelectLevel={loadLevel}
           />
         </div>
-        <div className="shrink-0">
+        <div className="shrink-0 space-y-2">
           <GameRulesButton onClick={() => setShowRules(true)} />
+          <Button
+            variant="outline"
+            onClick={() =>
+              window.open(
+                "https://drive.google.com/file/d/16fcbP4WJAOgFI4lWsRmQjqoE_6f8d3M8/view?usp=sharing",
+                "_blank"
+              )
+            }
+            className="w-full bg-stone-800/50 border-stone-600 hover:bg-stone-700 text-amber-100"
+          >
+            💡 Solutions
+          </Button>
         </div>
       </div>
 
@@ -498,6 +510,7 @@ export function Game3D() {
             Break Out Dungeon
           </h1>
           <p className="text-lg text-stone-400 mt-1">{currentLevel.name}</p>
+          <p className="text-sm text-stone-500 mt-1">Made by King Chen 💖</p>
         </div>
 
         {/* 3D Canvas */}
