@@ -489,6 +489,13 @@ export function Game3D() {
           <GameRulesButton onClick={() => setShowRules(true)} />
           <Button
             variant="outline"
+            onClick={() => window.open("https://www.youtube.com/watch?v=XCLB17N7vOg", "_blank")}
+            className="w-full bg-stone-800/50 border-stone-600 hover:bg-stone-700 text-amber-100"
+          >
+            🎥 Tutorial
+          </Button>
+          <Button
+            variant="outline"
             onClick={() =>
               window.open(
                 "https://drive.google.com/file/d/16fcbP4WJAOgFI4lWsRmQjqoE_6f8d3M8/view?usp=sharing",
