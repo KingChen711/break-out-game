@@ -1058,6 +1058,277 @@ export const level48: LevelData = {
   ],
 };
 
+// Level 49
+export const level49: LevelData = {
+  id: "level-49",
+  name: "Level 49",
+  difficulty: "Master",
+  minSteps: 22,
+  hero: {
+    position: { x: 2, y: 3 },
+    topFace: CubeFace.HEAD,
+    frontFace: CubeFace.FACE,
+    rightFace: CubeFace.WEAPON,
+  },
+  objects: [
+    { type: "key", position: { x: 2, y: 1 } },
+    { type: "box", position: { x: 3, y: 1 } },
+    { type: "box", position: { x: 2, y: 2 } },
+    { type: "crystal", position: { x: 1, y: 1 } },
+  ],
+};
+
+// Level 50
+export const level50: LevelData = {
+  id: "level-50",
+  name: "Level 50",
+  difficulty: "Master",
+  minSteps: 19,
+  hero: {
+    position: { x: 1, y: 3 },
+    topFace: CubeFace.HEAD,
+    frontFace: CubeFace.BACK,
+    rightFace: CubeFace.SHIELD,
+  },
+  objects: [
+    { type: "key", position: { x: 2, y: 1 } },
+    { type: "box", position: { x: 0, y: 1 } },
+    { type: "box", position: { x: 3, y: 0 } },
+    { type: "pillar", position: { x: 1, y: 2 } },
+    { type: "crystal", position: { x: 2, y: 2 } },
+    { type: "crystal", position: { x: 3, y: 3 } },
+    { type: "monster", position: { x: 3, y: 1 } },
+    { type: "sword", position: { x: 2, y: 3 } },
+  ],
+};
+
+// Level 51
+export const level51: LevelData = {
+  id: "level-51",
+  name: "Level 51",
+  difficulty: "Master",
+  minSteps: 36,
+  hero: {
+    position: { x: 4, y: 0 },
+    topFace: CubeFace.HEAD,
+    frontFace: CubeFace.BACK,
+    rightFace: CubeFace.SHIELD,
+  },
+  objects: [
+    { type: "key", position: { x: 4, y: 3 } },
+    { type: "box", position: { x: 3, y: 0 } },
+    { type: "box", position: { x: 0, y: 1 } },
+    { type: "pillar", position: { x: 1, y: 1 } },
+    { type: "pillar", position: { x: 4, y: 2 } },
+    { type: "crystal", position: { x: 2, y: 2 } },
+    { type: "monster", position: { x: 3, y: 3 } },
+    { type: "sword", position: { x: 2, y: 3 } },
+  ],
+};
+
+// Level 52
+export const level52: LevelData = {
+  id: "level-52",
+  name: "Level 52",
+  difficulty: "Master",
+  minSteps: 30,
+  hero: {
+    position: { x: 2, y: 2 },
+    topFace: CubeFace.HEAD,
+    frontFace: CubeFace.WEAPON,
+    rightFace: CubeFace.BACK,
+  },
+  objects: [
+    { type: "key", position: { x: 0, y: 1 } },
+    { type: "box", position: { x: 3, y: 0 } },
+    { type: "pillar", position: { x: 1, y: 1 } },
+    { type: "crystal", position: { x: 1, y: 3 } },
+    { type: "monster", position: { x: 3, y: 2 } },
+    { type: "sword", position: { x: 4, y: 0 } },
+  ],
+};
+// Level 53
+export const level53: LevelData = {
+  id: "level-53",
+  name: "Level 53",
+  difficulty: "Master",
+  minSteps: 30,
+  hero: {
+    position: { x: 0, y: 2 },
+    topFace: CubeFace.HEAD,
+    frontFace: CubeFace.BACK,
+    rightFace: CubeFace.SHIELD,
+  },
+  objects: [
+    { type: "key", position: { x: 2, y: 3 } },
+    { type: "box", position: { x: 1, y: 1 } },
+    { type: "box", position: { x: 2, y: 1 } },
+    { type: "pillar", position: { x: 3, y: 2 } },
+    { type: "crystal", position: { x: 0, y: 1 } },
+    { type: "monster", position: { x: 3, y: 3 } },
+    { type: "sword", position: { x: 4, y: 0 } },
+  ],
+};
+// Level 54
+export const level54: LevelData = {
+  id: "level-54",
+  name: "Level 54",
+  difficulty: "Master",
+  minSteps: 26,
+  hero: {
+    position: { x: 2, y: 3 },
+    topFace: CubeFace.HEAD,
+    frontFace: CubeFace.BACK,
+    rightFace: CubeFace.SHIELD,
+  },
+  objects: [
+    { type: "key", position: { x: 2, y: 2 } },
+    { type: "box", position: { x: 4, y: 0 } },
+    { type: "box", position: { x: 3, y: 2 } },
+    { type: "pillar", position: { x: 1, y: 2 } },
+    { type: "crystal", position: { x: 0, y: 0 } },
+    { type: "monster", position: { x: 2, y: 1 } },
+    { type: "sword", position: { x: 0, y: 3 } },
+  ],
+};
+// Level 55
+export const level55: LevelData = {
+  id: "level-55",
+  name: "Level 55",
+  difficulty: "Master",
+  minSteps: 33,
+  hero: {
+    position: { x: 4, y: 3 },
+    topFace: CubeFace.HEAD,
+    frontFace: CubeFace.WEAPON,
+    rightFace: CubeFace.BACK,
+  },
+  objects: [
+    { type: "key", position: { x: 1, y: 0 } },
+    { type: "box", position: { x: 1, y: 1 } },
+    { type: "box", position: { x: 3, y: 1 } },
+    { type: "pillar", position: { x: 0, y: 0 } },
+    { type: "pillar", position: { x: 4, y: 0 } },
+    { type: "crystal", position: { x: 2, y: 3 } },
+    { type: "monster", position: { x: 2, y: 2 } },
+    { type: "sword", position: { x: 0, y: 1 } },
+  ],
+};
+// Level 56
+export const level56: LevelData = {
+  id: "level-56",
+  name: "Level 56",
+  difficulty: "Master",
+  minSteps: 38,
+  hero: {
+    position: { x: 2, y: 1 },
+    topFace: CubeFace.HEAD,
+    frontFace: CubeFace.BACK,
+    rightFace: CubeFace.SHIELD,
+  },
+  objects: [
+    { type: "key", position: { x: 3, y: 2 } },
+    { type: "box", position: { x: 2, y: 2 } },
+    { type: "pillar", position: { x: 1, y: 1 } },
+    { type: "pillar", position: { x: 3, y: 1 } },
+    { type: "crystal", position: { x: 4, y: 2 } },
+    { type: "monster", position: { x: 3, y: 3 } },
+    { type: "sword", position: { x: 4, y: 3 } },
+  ],
+};
+// Level 57
+export const level57: LevelData = {
+  id: "level-57",
+  name: "Level 57",
+  difficulty: "Master",
+  minSteps: 28,
+  hero: {
+    position: { x: 2, y: 0 },
+    topFace: CubeFace.HEAD,
+    frontFace: CubeFace.FACE,
+    rightFace: CubeFace.WEAPON,
+  },
+  objects: [
+    { type: "key", position: { x: 2, y: 2 } },
+    { type: "box", position: { x: 1, y: 2 } },
+    { type: "box", position: { x: 3, y: 2 } },
+    { type: "crystal", position: { x: 1, y: 3 } },
+    { type: "crystal", position: { x: 3, y: 3 } },
+    { type: "monster", position: { x: 2, y: 1 } },
+    { type: "sword", position: { x: 2, y: 3 } },
+  ],
+};
+// Level 58
+export const level58: LevelData = {
+  id: "level-58",
+  name: "Level 58",
+  difficulty: "Master",
+  minSteps: 34,
+  hero: {
+    position: { x: 0, y: 0 },
+    topFace: CubeFace.HEAD,
+    frontFace: CubeFace.SHIELD,
+    rightFace: CubeFace.FACE,
+  },
+  objects: [
+    { type: "key", position: { x: 3, y: 0 } },
+    { type: "box", position: { x: 4, y: 0 } },
+    { type: "box", position: { x: 1, y: 2 } },
+    { type: "pillar", position: { x: 1, y: 0 } },
+    { type: "pillar", position: { x: 2, y: 1 } },
+    { type: "crystal", position: { x: 1, y: 3 } },
+    { type: "monster", position: { x: 3, y: 1 } },
+    { type: "sword", position: { x: 0, y: 1 } },
+  ],
+};
+// Level 59
+export const level59: LevelData = {
+  id: "level-59",
+  name: "Level 59",
+  difficulty: "Master",
+  minSteps: 28,
+  hero: {
+    position: { x: 4, y: 1 },
+    topFace: CubeFace.HEAD,
+    frontFace: CubeFace.WEAPON,
+    rightFace: CubeFace.BACK,
+  },
+  objects: [
+    { type: "key", position: { x: 2, y: 1 } },
+    { type: "box", position: { x: 1, y: 1 } },
+    { type: "box", position: { x: 2, y: 2 } },
+    { type: "pillar", position: { x: 4, y: 0 } },
+    { type: "pillar", position: { x: 3, y: 1 } },
+    { type: "crystal", position: { x: 0, y: 0 } },
+    { type: "crystal", position: { x: 2, y: 3 } },
+    { type: "monster", position: { x: 0, y: 1 } },
+    { type: "sword", position: { x: 3, y: 3 } },
+  ],
+};
+// Level 60
+export const level60: LevelData = {
+  id: "level-60",
+  name: "Level 60",
+  difficulty: "Master",
+  minSteps: 42,
+  hero: {
+    position: { x: 2, y: 0 },
+    topFace: CubeFace.HEAD,
+    frontFace: CubeFace.FACE,
+    rightFace: CubeFace.WEAPON,
+  },
+  objects: [
+    { type: "key", position: { x: 0, y: 0 } },
+    { type: "box", position: { x: 2, y: 1 } },
+    { type: "box", position: { x: 2, y: 2 } },
+    { type: "pillar", position: { x: 3, y: 1 } },
+    { type: "crystal", position: { x: 0, y: 1 } },
+    { type: "crystal", position: { x: 2, y: 3 } },
+    { type: "monster", position: { x: 1, y: 0 } },
+    { type: "sword", position: { x: 0, y: 3 } },
+  ],
+};
+
 // Level 61
 export const level61: LevelData = {
   id: "level-61",
@@ -1152,6 +1423,277 @@ export const level64: LevelData = {
     { type: "crystal", position: { x: 3, y: 2 } },
     { type: "monster", position: { x: 4, y: 0 } },
     { type: "sword", position: { x: 3, y: 0 } },
+  ],
+};
+// Level 65
+export const level65: LevelData = {
+  id: "level-65",
+  name: "Level 65",
+  difficulty: "Wizard",
+  minSteps: 38,
+  hero: {
+    position: { x: 0, y: 3 },
+    topFace: CubeFace.HEAD,
+    frontFace: CubeFace.BACK,
+    rightFace: CubeFace.SHIELD,
+  },
+  objects: [
+    { type: "key", position: { x: 2, y: 2 } },
+    { type: "box", position: { x: 3, y: 1 } },
+    { type: "box", position: { x: 4, y: 3 } },
+    { type: "pillar", position: { x: 1, y: 2 } },
+    { type: "crystal", position: { x: 2, y: 1 } },
+    { type: "crystal", position: { x: 4, y: 0 } },
+    { type: "monster", position: { x: 0, y: 2 } },
+    { type: "sword", position: { x: 0, y: 0 } },
+  ],
+};
+// Level 66
+export const level66: LevelData = {
+  id: "level-66",
+  name: "Level 66",
+  difficulty: "Wizard",
+  minSteps: 45,
+  hero: {
+    position: { x: 0, y: 3 },
+    topFace: CubeFace.HEAD,
+    frontFace: CubeFace.SHIELD,
+    rightFace: CubeFace.FACE,
+  },
+  objects: [
+    { type: "key", position: { x: 3, y: 3 } },
+    { type: "box", position: { x: 2, y: 3 } },
+    { type: "box", position: { x: 3, y: 0 } },
+    { type: "pillar", position: { x: 1, y: 0 } },
+    { type: "pillar", position: { x: 4, y: 0 } },
+    { type: "crystal", position: { x: 0, y: 1 } },
+    { type: "crystal", position: { x: 3, y: 2 } },
+    { type: "monster", position: { x: 2, y: 1 } },
+    { type: "sword", position: { x: 0, y: 0 } },
+  ],
+};
+// Level 67
+export const level67: LevelData = {
+  id: "level-67",
+  name: "Level 67",
+  difficulty: "Wizard",
+  minSteps: 26,
+  hero: {
+    position: { x: 1, y: 3 },
+    topFace: CubeFace.HEAD,
+    frontFace: CubeFace.SHIELD,
+    rightFace: CubeFace.FACE,
+  },
+  objects: [
+    { type: "key", position: { x: 4, y: 3 } },
+    { type: "box", position: { x: 2, y: 1 } },
+    { type: "crystal", position: { x: 4, y: 1 } },
+    { type: "crystal", position: { x: 3, y: 2 } },
+    { type: "monster", position: { x: 2, y: 3 } },
+    { type: "sword", position: { x: 3, y: 3 } },
+  ],
+};
+// Level 68
+export const level68: LevelData = {
+  id: "level-68",
+  name: "Level 68",
+  difficulty: "Wizard",
+  minSteps: 36,
+  hero: {
+    position: { x: 1, y: 2 },
+    topFace: CubeFace.HEAD,
+    frontFace: CubeFace.WEAPON,
+    rightFace: CubeFace.BACK,
+  },
+  objects: [
+    { type: "key", position: { x: 4, y: 1 } },
+    { type: "box", position: { x: 4, y: 0 } },
+    { type: "box", position: { x: 2, y: 3 } },
+    { type: "pillar", position: { x: 1, y: 1 } },
+    { type: "pillar", position: { x: 2, y: 1 } },
+    { type: "crystal", position: { x: 0, y: 2 } },
+    { type: "crystal", position: { x: 1, y: 3 } },
+    { type: "monster", position: { x: 3, y: 0 } },
+    { type: "sword", position: { x: 0, y: 3 } },
+  ],
+};
+// Level 69
+export const level69: LevelData = {
+  id: "level-69",
+  name: "Level 69",
+  difficulty: "Wizard",
+  minSteps: 33,
+  hero: {
+    position: { x: 0, y: 0 },
+    topFace: CubeFace.HEAD,
+    frontFace: CubeFace.FACE,
+    rightFace: CubeFace.WEAPON,
+  },
+  objects: [
+    { type: "key", position: { x: 4, y: 0 } },
+    { type: "box", position: { x: 3, y: 1 } },
+    { type: "box", position: { x: 0, y: 3 } },
+    { type: "pillar", position: { x: 2, y: 2 } },
+    { type: "crystal", position: { x: 4, y: 1 } },
+    { type: "crystal", position: { x: 2, y: 3 } },
+    { type: "monster", position: { x: 1, y: 0 } },
+    { type: "sword", position: { x: 3, y: 3 } },
+  ],
+};
+// Level 70
+export const level70: LevelData = {
+  id: "level-70",
+  name: "Level 70",
+  difficulty: "Wizard",
+  minSteps: 33,
+  hero: {
+    position: { x: 0, y: 2 },
+    topFace: CubeFace.HEAD,
+    frontFace: CubeFace.BACK,
+    rightFace: CubeFace.SHIELD,
+  },
+  objects: [
+    { type: "key", position: { x: 4, y: 2 } },
+    { type: "box", position: { x: 3, y: 1 } },
+    { type: "box", position: { x: 3, y: 2 } },
+    { type: "pillar", position: { x: 1, y: 1 } },
+    { type: "pillar", position: { x: 2, y: 1 } },
+    { type: "crystal", position: { x: 0, y: 1 } },
+    { type: "monster", position: { x: 3, y: 3 } },
+    { type: "sword", position: { x: 4, y: 0 } },
+  ],
+};
+// Level 71
+export const level71: LevelData = {
+  id: "level-71",
+  name: "Level 71",
+  difficulty: "Wizard",
+  minSteps: 32,
+  hero: {
+    position: { x: 0, y: 3 },
+    topFace: CubeFace.HEAD,
+    frontFace: CubeFace.BACK,
+    rightFace: CubeFace.SHIELD,
+  },
+  objects: [
+    { type: "key", position: { x: 4, y: 0 } },
+    { type: "box", position: { x: 3, y: 1 } },
+    { type: "pillar", position: { x: 1, y: 1 } },
+    { type: "pillar", position: { x: 4, y: 1 } },
+    { type: "crystal", position: { x: 0, y: 2 } },
+    { type: "crystal", position: { x: 2, y: 3 } },
+    { type: "monster", position: { x: 2, y: 1 } },
+    { type: "sword", position: { x: 4, y: 3 } },
+  ],
+};
+// Level 72
+export const level72: LevelData = {
+  id: "level-72",
+  name: "Level 72",
+  difficulty: "Wizard",
+  minSteps: 37,
+  hero: {
+    position: { x: 0, y: 2 },
+    topFace: CubeFace.HEAD,
+    frontFace: CubeFace.SHIELD,
+    rightFace: CubeFace.FACE,
+  },
+  objects: [
+    { type: "key", position: { x: 0, y: 1 } },
+    { type: "box", position: { x: 1, y: 1 } },
+    { type: "box", position: { x: 3, y: 1 } },
+    { type: "pillar", position: { x: 2, y: 1 } },
+    { type: "pillar", position: { x: 2, y: 3 } },
+    { type: "crystal", position: { x: 2, y: 2 } },
+    { type: "monster", position: { x: 0, y: 0 } },
+    { type: "sword", position: { x: 4, y: 3 } },
+  ],
+};
+// Level 73
+export const level73: LevelData = {
+  id: "level-73",
+  name: "Level 73",
+  difficulty: "Wizard",
+  minSteps: 17,
+  hero: {
+    position: { x: 1, y: 3 },
+    topFace: CubeFace.HEAD,
+    frontFace: CubeFace.BACK,
+    rightFace: CubeFace.SHIELD,
+  },
+  objects: [
+    { type: "key", position: { x: 0, y: 2 } },
+    { type: "box", position: { x: 3, y: 1 } },
+    { type: "pillar", position: { x: 1, y: 0 } },
+    { type: "pillar", position: { x: 3, y: 2 } },
+    { type: "crystal", position: { x: 2, y: 1 } },
+    { type: "crystal", position: { x: 1, y: 2 } },
+    { type: "monster", position: { x: 3, y: 3 } },
+    { type: "sword", position: { x: 1, y: 1 } },
+  ],
+};
+// Level 74
+export const level74: LevelData = {
+  id: "level-74",
+  name: "Level 74",
+  difficulty: "Wizard",
+  minSteps: 26,
+  hero: {
+    position: { x: 4, y: 3 },
+    topFace: CubeFace.HEAD,
+    frontFace: CubeFace.WEAPON,
+    rightFace: CubeFace.BACK,
+  },
+  objects: [
+    { type: "key", position: { x: 1, y: 2 } },
+    { type: "box", position: { x: 0, y: 0 } },
+    { type: "box", position: { x: 2, y: 1 } },
+    { type: "pillar", position: { x: 4, y: 1 } },
+    { type: "pillar", position: { x: 2, y: 2 } },
+    { type: "crystal", position: { x: 0, y: 2 } },
+    { type: "crystal", position: { x: 1, y: 3 } },
+  ],
+};
+// Level 75
+export const level75: LevelData = {
+  id: "level-75",
+  name: "Level 75",
+  difficulty: "Wizard",
+  minSteps: 29,
+  hero: {
+    position: { x: 3, y: 0 },
+    topFace: CubeFace.HEAD,
+    frontFace: CubeFace.WEAPON,
+    rightFace: CubeFace.BACK,
+  },
+  objects: [
+    { type: "key", position: { x: 2, y: 1 } },
+    { type: "box", position: { x: 1, y: 1 } },
+    { type: "pillar", position: { x: 2, y: 2 } },
+    { type: "pillar", position: { x: 4, y: 2 } },
+    { type: "crystal", position: { x: 3, y: 1 } },
+    { type: "monster", position: { x: 3, y: 2 } },
+    { type: "sword", position: { x: 0, y: 0 } },
+  ],
+};
+// Level 76
+export const level76: LevelData = {
+  id: "level-76",
+  name: "Level 76",
+  difficulty: "Wizard",
+  minSteps: 27,
+  hero: {
+    position: { x: 2, y: 3 },
+    topFace: CubeFace.HEAD,
+    frontFace: CubeFace.FACE,
+    rightFace: CubeFace.WEAPON,
+  },
+  objects: [
+    { type: "key", position: { x: 2, y: 1 } },
+    { type: "box", position: { x: 3, y: 1 } },
+    { type: "pillar", position: { x: 0, y: 2 } },
+    { type: "pillar", position: { x: 2, y: 2 } },
+    { type: "crystal", position: { x: 1, y: 1 } },
   ],
 };
 // Level 77
@@ -1298,10 +1840,34 @@ export const ALL_LEVELS: LevelData[] = [
   level46,
   level47,
   level48,
+  level49,
+  level50,
+  level51,
+  level52,
+  level53,
+  level54,
+  level55,
+  level56,
+  level57,
+  level58,
+  level59,
+  level60,
   level61,
   level62,
   level63,
   level64,
+  level65,
+  level66,
+  level67,
+  level68,
+  level69,
+  level70,
+  level71,
+  level72,
+  level73,
+  level74,
+  level75,
+  level76,
   level77,
   level78,
   level79,
