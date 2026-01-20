@@ -106,7 +106,7 @@ export const MAP_HEIGHT = 4;
 export const LOCK_POSITION: Position = { x: 2, y: 0 };
 
 // Difficulty levels
-export type Difficulty = "Starter" | "Junior" | "Expert" | "Master" | "Wizard";
+export type Difficulty = "Tutorial" | "Starter" | "Junior" | "Expert" | "Master" | "Wizard";
 
 // Level definition - makes it easy to create new levels
 export interface LevelData {
@@ -114,6 +114,11 @@ export interface LevelData {
   name: string;
   difficulty: Difficulty;
   minSteps: number;
+  // Tutorial metadata (optional)
+  isTutorial?: boolean;
+  tutorialTitle?: { en: string; vi: string };
+  tutorialBody?: { en: string; vi: string };
+  tutorialSteps?: { en: string[]; vi: string[] };
   // Hero starting configuration
   hero: {
     position: Position;

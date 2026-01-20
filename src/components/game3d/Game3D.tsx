@@ -11,7 +11,7 @@ import {
   canRotate,
   canRoll,
 } from "@/lib/game-logic";
-import { ALL_LEVELS, getNextLevel } from "@/lib/levels";
+import { ALL_LEVELS, getNextLevel, getLevelById } from "@/lib/levels";
 import { playSound, loadSoundPreferences } from "@/lib/sound-manager";
 import { GameBoard3D } from "./GameBoard3D";
 import { GameControls } from "../game/GameControls";
@@ -19,6 +19,107 @@ import { GameInfo } from "../game/GameInfo";
 import { LevelSelector } from "../game/LevelSelector";
 import { GameRulesDialog, GameRulesButton } from "../game/GameRules";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
+function TutorialPanel({
+  level,
+  lang,
+  onChangeLang,
+  onNextTutorial,
+  hasNextTutorial,
+}: {
+  level: LevelData;
+  lang: "en" | "vi";
+  onChangeLang: (lang: "en" | "vi") => void;
+  onNextTutorial: () => void;
+  hasNextTutorial: boolean;
+}) {
+  if (!level.isTutorial) return null;
+
+  const titleEn = level.tutorialTitle?.en ?? level.name;
+  const titleVi = level.tutorialTitle?.vi ?? level.name;
+  const bodyEn = level.tutorialBody?.en;
+  const bodyVi = level.tutorialBody?.vi;
+  const stepsEn = level.tutorialSteps?.en ?? [];
+  const stepsVi = level.tutorialSteps?.vi ?? [];
+  const showEn = lang === "en";
+  const title = showEn ? titleEn : titleVi;
+  const body = showEn ? bodyEn : bodyVi;
+  const steps = showEn ? stepsEn : stepsVi;
+
+  return (
+    <Card className="bg-stone-900/90 border-amber-700/40 backdrop-blur">
+      <CardHeader className="pb-2">
+        <div className="flex items-center justify-between gap-2">
+          <CardTitle className="text-lg text-amber-300 flex items-center gap-2">
+            <span>📘</span> Tutorial
+          </CardTitle>
+          <div className="flex items-center gap-2">
+            <div className="flex rounded bg-stone-800/80 border border-stone-600 overflow-hidden">
+              <Button
+                size="sm"
+                variant={showEn ? "default" : "outline"}
+                onClick={() => onChangeLang("en")}
+                className={`h-7 px-2 text-xs ${
+                  showEn
+                    ? "bg-amber-600 hover:bg-amber-700 text-white"
+                    : "bg-transparent border-0 text-stone-300 hover:bg-stone-700"
+                }`}
+              >
+                EN
+              </Button>
+              <Button
+                size="sm"
+                variant={!showEn ? "default" : "outline"}
+                onClick={() => onChangeLang("vi")}
+                className={`h-7 px-2 text-xs ${
+                  !showEn
+                    ? "bg-amber-600 hover:bg-amber-700 text-white"
+                    : "bg-transparent border-0 text-stone-300 hover:bg-stone-700"
+                }`}
+              >
+                VI
+              </Button>
+            </div>
+          </div>
+        </div>
+      </CardHeader>
+      <CardContent className="space-y-2 text-sm">
+        <div className="space-y-1">
+          <div className="font-semibold text-stone-100">{title}</div>
+        </div>
+
+        {body && (
+          <div className="space-y-1 pt-1">
+            <div className="text-stone-200 whitespace-pre-line">{body}</div>
+          </div>
+        )}
+
+        {steps.length > 0 && (
+          <div className="pt-2 space-y-1">
+            {steps.map((step, i) => (
+              <div key={i} className="border-l border-amber-500/30 pl-2 space-y-0.5">
+                <div className="text-stone-200">- {step}</div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {hasNextTutorial && (
+          <div className="pt-3">
+            <Button
+              variant="outline"
+              onClick={onNextTutorial}
+              className="w-full bg-stone-800/50 border-amber-600/60 text-amber-300 hover:bg-amber-900/40"
+            >
+              Next Tutorial →
+            </Button>
+          </div>
+        )}
+      </CardContent>
+    </Card>
+  );
+}
 
 // Deep clone game state for history
 function cloneGameState(state: GameState): GameState {
@@ -162,6 +263,7 @@ function getTargetPosition(
 }
 
 export function Game3D() {
+  // Initialize with default level to avoid hydration mismatch
   const [currentLevel, setCurrentLevel] = useState<LevelData>(ALL_LEVELS[0]);
   const [gameState, setGameState] = useState<GameState>(() =>
     createGameStateFromLevel(ALL_LEVELS[0])
@@ -177,6 +279,7 @@ export function Game3D() {
   } | null>(null);
   const [isStuck, setIsStuck] = useState(false);
   const [showUniKeyWarning, setShowUniKeyWarning] = useState(false);
+  const [tutorialLang, setTutorialLang] = useState<"en" | "vi">("en");
 
   // Track camera angle for relative controls
   const cameraAngleRef = useRef(Math.PI / 4); // Default angle (45 degrees)
@@ -187,6 +290,28 @@ export function Game3D() {
   // Load sound preferences on mount
   useEffect(() => {
     loadSoundPreferences();
+  }, []);
+
+  // Load last played level from localStorage after mount (client-side only)
+  // This runs only once after hydration to avoid hydration mismatch
+  useEffect(() => {
+    // Use setTimeout to make state updates asynchronous and avoid linter warning
+    const timeoutId = setTimeout(() => {
+      try {
+        const lastLevelId = localStorage.getItem("breakout-last-level");
+        if (lastLevelId) {
+          const lastLevel = getLevelById(lastLevelId);
+          if (lastLevel) {
+            setCurrentLevel(lastLevel);
+            setGameState(createGameStateFromLevel(lastLevel));
+          }
+        }
+      } catch {
+        // Ignore localStorage errors (e.g., in private browsing)
+      }
+    }, 0);
+
+    return () => clearTimeout(timeoutId);
   }, []);
 
   // Detect pickups and level completion to play sounds
@@ -224,6 +349,12 @@ export function Game3D() {
     setGameState(createGameStateFromLevel(level));
     setHistory([]); // Clear history when loading new level
     setShowVictoryDialog(false);
+    // Save last played level to localStorage
+    try {
+      localStorage.setItem("breakout-last-level", level.id);
+    } catch {
+      // Ignore localStorage errors (e.g., in private browsing)
+    }
   }, []);
 
   const handleCameraAngleChange = useCallback((angle: number) => {
@@ -466,6 +597,18 @@ export function Game3D() {
 
   const hasNextLevel = !!getNextLevel(currentLevel.id);
   const canUndoMove = history.length > 0;
+  const currentIndex = ALL_LEVELS.findIndex((l) => l.id === currentLevel.id);
+  const hasNextTutorial =
+    currentIndex >= 0 && ALL_LEVELS.slice(currentIndex + 1).some((l) => l.isTutorial);
+
+  const handleNextTutorial = useCallback(() => {
+    const idx = ALL_LEVELS.findIndex((l) => l.id === currentLevel.id);
+    if (idx < 0) return;
+    const nextTutorial = ALL_LEVELS.slice(idx + 1).find((l) => l.isTutorial);
+    if (nextTutorial) {
+      loadLevel(nextTutorial);
+    }
+  }, [currentLevel.id, loadLevel]);
 
   return (
     <div className="min-h-screen bg-linear-to-br from-stone-950 via-stone-900 to-slate-950 flex flex-col lg:flex-row">
@@ -476,6 +619,7 @@ export function Game3D() {
             hero={gameState.hero}
             moveCount={gameState.moveCount}
             hasWon={gameState.hasWon}
+            currentLevel={currentLevel}
           />
         </div>
         <div className="flex-1 min-h-0">
@@ -514,7 +658,7 @@ export function Game3D() {
       {/* Main game area */}
       <div className="flex-1 flex flex-col order-1 lg:order-2">
         {/* Header */}
-        <div className="text-center py-4">
+        <div className="text-center py-4 px-4">
           <h1 className="text-4xl font-bold bg-linear-to-r from-amber-400 via-orange-400 to-amber-500 bg-clip-text text-transparent tracking-tight">
             Break Out Dungeon
           </h1>
@@ -551,15 +695,26 @@ export function Game3D() {
         </div>
       </div>
 
-      {/* Right sidebar - Controls */}
+      {/* Right sidebar - Tutorial + Controls */}
       <div className="w-full lg:w-72 p-4 order-3">
-        <div className="sticky top-4">
+        <div className="sticky top-4 space-y-4">
+          {/* Tutorial panel on the right side, scrollable to avoid full-page scroll */}
+          <div className="max-h-[55vh] overflow-y-auto pr-1">
+            <TutorialPanel
+              level={currentLevel}
+              lang={tutorialLang}
+              onChangeLang={setTutorialLang}
+              onNextTutorial={handleNextTutorial}
+              hasNextTutorial={hasNextTutorial}
+            />
+          </div>
+
           <GameControls
             onRoll={handleRollRelative}
             onRotate={handleRotate}
             disabled={isAnimating || gameState.hasWon || isStuck}
           />
-          <div className="mt-4 flex gap-2">
+          <div className="flex gap-2">
             <Button
               onClick={handleUndo}
               variant="outline"

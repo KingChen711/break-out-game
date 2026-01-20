@@ -1,15 +1,16 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { HeroState, CubeFace, FACE_LABELS } from "@/lib/game-types";
+import { HeroState, LevelData } from "@/lib/game-types";
 
 interface GameInfoProps {
   hero: HeroState;
   moveCount: number;
   hasWon: boolean;
+  currentLevel?: LevelData;
 }
 
-export function GameInfo({ hero, moveCount, hasWon }: GameInfoProps) {
+export function GameInfo({ hero, moveCount, hasWon, currentLevel }: GameInfoProps) {
   return (
     <Card className="bg-stone-900/90 border-stone-700 backdrop-blur">
       <CardHeader className="pb-2">
@@ -18,6 +19,18 @@ export function GameInfo({ hero, moveCount, hasWon }: GameInfoProps) {
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-3">
+        {/* Current level */}
+        {currentLevel && (
+          <div className="space-y-1">
+            <div className="flex items-center justify-between text-sm">
+              <span className="text-stone-400">Level:</span>
+              <span className="text-stone-200 font-medium truncate max-w-48 text-right">
+                {currentLevel.name}
+              </span>
+            </div>
+          </div>
+        )}
+
         {/* Win state */}
         {hasWon && (
           <div className="bg-linear-to-r from-green-600 to-emerald-600 text-white px-4 py-2 rounded-lg text-center font-bold animate-pulse">

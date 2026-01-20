@@ -1,20 +1,250 @@
 import { CubeFace, LevelData } from "./game-types";
 
-export const level0: LevelData = {
-  id: "level-0",
-  name: "Level Test",
-  difficulty: "Starter",
+// --------------------
+// Tutorial Levels (EN/VI)
+// Note: Tutorials are designed to teach mechanics; they are not necessarily "winnable"
+// in a single obvious path because the main game has a strict win condition.
+// --------------------
+
+export const tutorial1: LevelData = {
+  id: "tutorial-1",
+  name: "T1 — Basic Movement",
+  difficulty: "Tutorial",
   minSteps: 0,
+  isTutorial: true,
+  tutorialTitle: {
+    en: "Basic Movement",
+    vi: "Di chuyển cơ bản",
+  },
+  tutorialBody: {
+    en: "Roll the cube using WASD/Arrow keys. Each roll moves 1 tile. You can also drag with the mouse to rotate the camera around the board.\nAll direction hints in tutorials (Up, Down, Left, Right) assume the default camera view: looking from behind the board toward the door.",
+    vi: "Dùng WASD/phím mũi tên để lăn khối. Mỗi lần lăn đi 1 ô. Bạn cũng có thể kéo chuột để xoay góc nhìn xung quanh bàn chơi.\nMọi hướng dẫn di chuyển trong tutorial (Lên, Xuống, Trái, Phải) đều được mô tả theo **góc nhìn mặc định**: nhìn từ phía sau bàn cờ hướng về phía cánh cửa.",
+  },
+  tutorialSteps: {
+    en: ["Try rolling in all 4 directions."],
+    vi: ["Hãy thử lăn theo cả 4 hướng."],
+  },
   hero: {
-    position: { x: 0, y: 0 },
+    position: { x: 2, y: 2 },
+    topFace: CubeFace.HEAD,
+    frontFace: CubeFace.FACE,
+    rightFace: CubeFace.WEAPON,
+  },
+  objects: [],
+};
+
+export const tutorial2: LevelData = {
+  id: "tutorial-2",
+  name: "T2 — Obstacles",
+  difficulty: "Tutorial",
+  minSteps: 0,
+  isTutorial: true,
+  tutorialTitle: {
+    en: "Obstacles: Box, Pillar, Monster",
+    vi: "Chướng ngại: Hộp, Cột, Quái vật",
+  },
+  tutorialBody: {
+    en: "Some tiles block your roll: Box, Pillar, and Monster. You cannot roll through them.",
+    vi: "Một số ô chặn đường lăn của bạn: Hộp, Cột và Quái vật. Bạn không thể lăn xuyên qua chúng.",
+  },
+  tutorialSteps: {
+    en: [
+      "Try rolling toward each obstacle and see that you cannot pass through.",
+      "Boxes, pillars, and monsters all block movement.",
+    ],
+    vi: [
+      "Hãy thử lăn về phía từng chướng ngại và thấy rằng bạn không thể lăn xuyên qua.",
+      "Hộp, cột và quái vật đều chặn đường.",
+    ],
+  },
+  hero: {
+    position: { x: 1, y: 2 },
+    topFace: CubeFace.HEAD,
+    frontFace: CubeFace.FACE,
+    rightFace: CubeFace.WEAPON,
+  },
+  objects: [
+    { type: "box", position: { x: 0, y: 2 } },
+    { type: "pillar", position: { x: 2, y: 2 } },
+    { type: "monster", position: { x: 1, y: 1 } },
+  ],
+};
+
+export const tutorial3: LevelData = {
+  id: "tutorial-3",
+  name: "T3 — Keyhole & Key",
+  difficulty: "Tutorial",
+  minSteps: 0,
+  isTutorial: true,
+  tutorialTitle: {
+    en: "Keyhole & Key",
+    vi: "Ổ khóa & Chìa khóa",
+  },
+  tutorialBody: {
+    en: "The key is also an obstacle: you cannot roll onto it normally. You can only move onto the key tile and pick it up by rolling onto it with the Keyhole face (bottom face of the hero).",
+    vi: "Chìa khóa cũng là một chướng ngại: bạn không thể lăn lên ô có chìa như bình thường. Bạn CHỈ có thể lăn lên Chìa Khóa và nhặt nó khi lăn lên nó bằng mặt Ổ Khóa (nằm dưới đáy nhân vật)",
+  },
+  tutorialSteps: {
+    en: [
+      "First, try rolling onto the key when the bottom is NOT Keyhole — the move is blocked like other obstacles.",
+      "Next, roll the sequence: Up → Left → Down to pick up the key.",
+    ],
+    vi: [
+      "Đầu tiên, hãy thử lăn lên ô có chìa khi mặt đáy KHÔNG phải Ổ khóa — nước đi sẽ bị chặn giống các chướng ngại khác.",
+      "Hãy thử lăn theo thứ tự: Lên → Trái → Xuống để nhặt được chìa khóa.",
+    ],
+  },
+  hero: {
+    position: { x: 3, y: 1 },
+    topFace: CubeFace.HEAD,
+    frontFace: CubeFace.FACE,
+    rightFace: CubeFace.WEAPON,
+  },
+  objects: [{ type: "key", position: { x: 2, y: 1 } }],
+};
+
+export const tutorial4: LevelData = {
+  id: "tutorial-4",
+  name: "T4 — Crystal Rule",
+  difficulty: "Tutorial",
+  minSteps: 0,
+  isTutorial: true,
+  tutorialTitle: {
+    en: "Crystal Rule",
+    vi: "Luật Pha lê",
+  },
+  tutorialBody: {
+    en: "Crystals are also obstacles: normally they block your roll. You can pass through crystals ONLY if the landing bottom is Keyhole AND you have not picked up the key yet.",
+    vi: "Pha lê cũng là một chướng ngại: bình thường chúng chặn đường lăn của bạn. Bạn chỉ đi xuyên qua pha lê khi mặt đáy là Ổ Khóa VÀ bạn chưa nhặt Chìa Khóa.",
+  },
+  tutorialSteps: {
+    en: [
+      "1) First, try rolling onto the LEFT crystal. You cannot move because the next bottom face is not Keyhole.",
+      "2) Then roll Up → Right → Down. Now you can roll onto the LEFT crystal because the bottom face is Keyhole.",
+      "3) Next, try to pick up the key by rolling Up → Right → Down.",
+      "4) Finally, try the sequence Up → Left → Down. The last Down move is blocked because you have already picked up the key, so the crystal becomes a solid obstacle again.",
+    ],
+    vi: [
+      "1) Đầu tiên, hãy thử lăn vào pha lê BÊN TRÁI. Bạn sẽ không lăn được vì mặt đáy tiếp theo không phải là Ổ Khóa.",
+      "2) Tiếp theo, lăn lần lượt: Lên → Phải → Xuống. Lúc này bạn sẽ lăn được lên pha lê BÊN PHẢI vì mặt đáy là Ổ Khóa.",
+      "3) Sau đó, thử nhặt chìa khóa bằng cách lăn: Lên → Phải → Xuống.",
+      "4) Cuối cùng, thử chuỗi: Lên → Trái → Xuống. Bước Xuống cuối cùng sẽ không thực hiện được vì bạn đã nhặt Chìa Khóa, nên pha lê lại trở thành chướng ngại chặn đường.",
+    ],
+  },
+  hero: {
+    position: { x: 1, y: 1 },
+    topFace: CubeFace.HEAD,
+    frontFace: CubeFace.FACE,
+    rightFace: CubeFace.WEAPON,
+  },
+  objects: [
+    { type: "crystal", position: { x: 0, y: 1 } },
+    { type: "crystal", position: { x: 2, y: 1 } },
+    { type: "key", position: { x: 3, y: 1 } },
+  ],
+};
+
+export const tutorial5: LevelData = {
+  id: "tutorial-5",
+  name: "T5 — Shield & Rotate",
+  difficulty: "Tutorial",
+  minSteps: 0,
+  isTutorial: true,
+  tutorialTitle: {
+    en: "Shield & Rotate",
+    vi: "Khiên & Xoay",
+  },
+  tutorialBody: {
+    en: "You can rotate in place ONLY when the bottom face is Shield. Rotation changes orientation without moving tiles. You also cannot rotate if any adjacent (non-diagonal) tile contains a Box or Monster.",
+    vi: "Bạn có thể xoay khi mặt đáy là Khiên. Xoay đổi hướng mà không di chuyển ô. Ngoài ra, bạn sẽ KHÔNG thể xoay nếu có bất kỳ Hộp hoặc Quái vật nào ở ô liền kề (không tính đường chéo).",
+  },
+  tutorialSteps: {
+    en: ["Get Shield to the bottom, then rotate (Q/E/X)."],
+    vi: ["Đưa Khiên xuống đáy rồi xoay (Q/E/X)."],
+  },
+  hero: {
+    position: { x: 1, y: 1 },
     topFace: CubeFace.HEAD,
     frontFace: CubeFace.SHIELD,
     rightFace: CubeFace.FACE,
   },
   objects: [
-    { type: "key", position: { x: 3, y: 2 } },
-    { type: "sword", position: { x: 0, y: 3 } },
+    { type: "monster", position: { x: 4, y: 2 } },
+    { type: "box", position: { x: 0, y: 3 } },
+    { type: "pillar", position: { x: 0, y: 2 } },
+    { type: "key", position: { x: 2, y: 2 } },
+    { type: "crystal", position: { x: 1, y: 3 } },
+  ],
+};
+
+export const tutorial6: LevelData = {
+  id: "tutorial-6",
+  name: "T6 — Sword & Monster",
+  difficulty: "Tutorial",
+  minSteps: 0,
+  isTutorial: true,
+  tutorialTitle: {
+    en: "Sword & Monster",
+    vi: "Kiếm & Quái vật",
+  },
+  tutorialBody: {
+    en: "You can always roll onto the sword tile. If you land with Weapon on bottom, you pick up the sword and the monster flees (this adds +1 step).",
+    vi: "Bạn luôn có thể lăn lên ô kiếm. Nếu mặt đáy là Vũ khí, bạn nhặt kiếm và quái vật bỏ chạy (tính thêm +1 bước).",
+  },
+  tutorialSteps: {
+    en: [
+      "Try landing on the sword with Weapon on the bottom.",
+      "Watch the step counter: picking up sword costs 2 steps total.",
+    ],
+    vi: [
+      "Hãy đáp xuống ô kiếm với mặt đáy là Vũ khí.",
+      "Xem bộ đếm bước: nhặt kiếm tổng tốn 2 bước.",
+    ],
+  },
+  hero: {
+    position: { x: 1, y: 3 },
+    topFace: CubeFace.HEAD,
+    frontFace: CubeFace.FACE,
+    rightFace: CubeFace.WEAPON,
+  },
+  objects: [
+    { type: "sword", position: { x: 2, y: 3 } },
     { type: "monster", position: { x: 4, y: 3 } },
+  ],
+};
+
+export const tutorial7: LevelData = {
+  id: "tutorial-7",
+  name: "T7 — Escape Flow",
+  difficulty: "Tutorial",
+  minSteps: 0,
+  isTutorial: true,
+  tutorialTitle: {
+    en: "Winning Condition",
+    vi: "Điều kiện thắng",
+  },
+  tutorialBody: {
+    en: "To escape the dungeon, you need: 1) To pick up the key, and 2) To stand in front of the door with the Keyhole face at bottom and the hero's face pointing towards the door.",
+    vi: "Để thoát khỏi ngục tối, bạn cần: 1) Nhặt chìa khóa, và 2) Đứng trước cửa với mặt Ổ Khóa ở đáy và Mặt nhân vật hướng về cửa.",
+  },
+  tutorialSteps: {
+    en: [],
+    vi: [],
+  },
+  hero: {
+    position: { x: 0, y: 3 },
+    topFace: CubeFace.HEAD,
+    frontFace: CubeFace.SHIELD,
+    rightFace: CubeFace.FACE,
+  },
+  objects: [
+    { type: "pillar", position: { x: 4, y: 0 } },
+    { type: "box", position: { x: 1, y: 2 } },
+    { type: "monster", position: { x: 2, y: 2 } },
+    { type: "crystal", position: { x: 3, y: 2 } },
+    { type: "pillar", position: { x: 0, y: 2 } },
+    { type: "crystal", position: { x: 2, y: 1 } },
+    { type: "key", position: { x: 4, y: 3 } },
   ],
 };
 
@@ -1791,7 +2021,13 @@ export const level80: LevelData = {
 
 // Export all levels as an array for easy iteration
 export const ALL_LEVELS: LevelData[] = [
-  level0,
+  tutorial1,
+  tutorial2,
+  tutorial3,
+  tutorial4,
+  tutorial5,
+  tutorial6,
+  tutorial7,
   level1,
   level2,
   level3,
