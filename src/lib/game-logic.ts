@@ -394,6 +394,7 @@ export function rollHero(state: GameState, direction: Direction): GameState {
 
   // Check for pickup
   const obstacle = newObjects.find((obj) => positionEquals(obj.position, nextHero.position));
+  let extraSteps = 0;
 
   if (obstacle) {
     // Pick up key
@@ -404,6 +405,8 @@ export function rollHero(state: GameState, direction: Direction): GameState {
 
     // Pick up sword: only if bottom is weapon (can walk on sword without picking up)
     if (obstacle.type === "sword" && nextHero.bottomFace === CubeFace.WEAPON) {
+      // Count the scare/run-away as an extra step (move onto sword is 1 step, scare is +1)
+      extraSteps = 1;
       nextHero.hasSword = true;
       newObjects = newObjects.filter((obj) => obj !== obstacle);
       // Monster gets scared and runs away when sword is picked up
@@ -425,7 +428,7 @@ export function rollHero(state: GameState, direction: Direction): GameState {
     hero: nextHero,
     objects: newObjects,
     hasWon,
-    moveCount: state.moveCount + 1,
+    moveCount: state.moveCount + 1 + extraSteps,
   };
 }
 

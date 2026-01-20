@@ -457,7 +457,7 @@ export const level21: LevelData = {
   id: "level-21",
   name: "Level 21",
   difficulty: "Junior",
-  minSteps: 9,
+  minSteps: 10,
   hero: {
     position: { x: 3, y: 0 },
     topFace: CubeFace.HEAD,

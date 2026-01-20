@@ -22,7 +22,7 @@ const rules = {
         "**Box, Monster, Pillar**: Cannot roll through these obstacles.",
         "**Key**: Can roll onto key only if the landing bottom face is the **Keyhole**. The key will be picked up automatically.",
         "**Crystal**: Can pass through crystal only if the landing bottom face is the **Keyhole** AND you have not picked up the key yet. After picking up the key, crystals will block you.",
-        "**Sword**: Can always roll onto the sword position. If the landing bottom face is the **Weapon**, you will pick up the sword and the monster will flee from the map.",
+        "**Sword**: Can always roll onto the sword position. If the landing bottom face is the **Weapon**, you will pick up the sword (1 step) and the monster will flee (automatic, counts as +1 step). Total cost: 2 steps when you pick up the sword.",
       ],
     },
     rotation: {
@@ -68,7 +68,7 @@ const rules = {
         "**Hộp, Quái vật, Cột**: Không thể lăn qua những chướng ngại vật này.",
         "**Chìa khóa**: Chỉ có thể lăn lên chìa khóa nếu mặt đáy là **Ổ khóa**. Chìa khóa sẽ được nhặt tự động.",
         "**Pha lê**: Chỉ có thể đi qua pha lê nếu mặt đáy là **Ổ khóa** VÀ bạn chưa nhặt chìa khóa. Sau khi nhặt chìa khóa, pha lê sẽ chặn đường.",
-        "**Kiếm**: Luôn có thể lăn vào vị trí có kiếm. Nếu mặt đáy là **Vũ khí**, bạn sẽ nhặt kiếm và quái vật sẽ sợ hãi bỏ chạy khỏi bản đồ.",
+        "**Kiếm**: Luôn có thể lăn vào vị trí có kiếm. Nếu mặt đáy là **Vũ khí**, bạn nhặt kiếm (1 bước) và quái vật tự động hoảng sợ bỏ chạy (tính thêm 1 bước). Tổng cộng: nhặt kiếm được xem là tốn 2 bước.",
       ],
     },
     rotation: {
